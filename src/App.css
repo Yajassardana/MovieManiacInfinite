@@ -3,7 +3,9 @@
 /* Global Styles */
 @import url('https://fonts.googleapis.com/css?family=Raleway:300,400,600&subset=latin-ext');
 @import url('https://fonts.googleapis.com/css?family=Raleway:300,400,600&subset=latin-ext');
-
+li a{
+color: white;
+}
 
 .card{
             position:relative;
@@ -504,34 +506,7 @@ table th {
 }
 
 /* Navbar */
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0.7rem 2rem;
-  z-index: 1;
-  width: 100%;
-  opacity: 0.9;
-  margin-bottom: 1rem;
-}
 
-.navbar ul {
-  display: flex;
-}
-
-.navbar a {
-  color: #fff;
-  padding: 0.45rem;
-  margin: 0 0.25rem;
-}
-
-.navbar a:hover {
-  color: var(--light-color);
-}
-
-.navbar .welcome span {
-  margin-right: 0.6rem;
-}
 
 /* Mobile Styles */
 @media (max-width: 700px) {
@@ -557,15 +532,5 @@ table th {
   .lead {
     font-size: 1rem;
   }
-
-  /* Navbar */
-  .navbar {
-    display: block;
-    text-align: center;
-  }
-
-  .navbar ul {
-    text-align: center;
-    justify-content: center;
-  }
 }
+  /* Navbar */

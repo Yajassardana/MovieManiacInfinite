@@ -14,43 +14,43 @@ class App extends Component {
     loading:false,
     pageCount:2
   };
-   fetchMoreData = async () => {
-   setTimeout(() => {
-     axios.get(`https://api.themoviedb.org/3/discover/movie?api_key=0c4c76bbf3416c3ab3fa77af77cd6cc8&page=${this.state.pageCount}`).then((res)=>{
-       this.setState({
-         users: this.state.users.concat(res.data.results),
-         pageCount:this.state.pageCount+1
-       });
-     });
+  fetchMoreData = async () => {
+    setTimeout(() => {
+      axios.get(`https://api.themoviedb.org/3/discover/movie?api_key=0c4c76bbf3416c3ab3fa77af77cd6cc8&page=${this.state.pageCount}`).then((res)=>{
+        this.setState({
+          users: this.state.users.concat(res.data.results),
+          pageCount:this.state.pageCount+1
+        });
+      });
 
-   }, 2000);
- };
+    }, 1000);
+  };
   async componentDidMount() {
     this.setState({loading:true});
-     const res = await axios.get('https://api.themoviedb.org/3/discover/movie?api_key=0c4c76bbf3416c3ab3fa77af77cd6cc8');
+    const res = await axios.get('https://api.themoviedb.org/3/discover/movie?api_key=0c4c76bbf3416c3ab3fa77af77cd6cc8');
     this.setState({users:res.data.results,loading:false});
-     console.log(res.data);
+    console.log(res.data);
   }
   render() {
     const{users,loading,alert}=this.state;
-      return (
-          <div className = "App">
-            <Navbar/>
-            <div className="container">
-                   <Users loading={loading} users={users} />
-                     <InfiniteScroll
-                      dataLength={users.length} //This is important field to render the next data
-                      next={this.fetchMoreData}
-                      hasMore={true}
-                      loader={<Loader/>}
-                      endMessage={
-                        <p style={{textAlign: 'center'}}>
-                          <b>Yay! You have seen it all</b> </p>}
-                      />
+    return (
+      <div className = "App">
+        <Navbar/>
+        <div className="container">
+          <Users loading={loading} users={users} />
+          <InfiniteScroll
+            dataLength={users.length} //This is important field to render the next data
+            next={this.fetchMoreData}
+            hasMore={true}
+            loader={<Loader/>}
+            endMessage={
+              <p style={{textAlign: 'center'}}>
+                <b>Yay! You have seen it all</b> </p>}
+                  />
+              </div>
             </div>
-          </div>
-  );
-  }
-}
+          );
+        }
+      }
 
 export default App;
