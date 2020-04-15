@@ -6,7 +6,8 @@ import axios from 'axios'
 import About from './Components/pages/about.js';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import Loader from './Components/Layout/Loader.js';
-import {BrowserRouter as Router,Switch,Route} from 'react-router-dom';
+import Modal from './Components/Layout/Modal.js'
+// import {BrowserRouter as Router,Switch,Route} from 'react-router-dom';
 class App extends Component {
   state={
     users:[],
@@ -33,16 +34,9 @@ class App extends Component {
   render() {
     const{users,loading,alert}=this.state;
       return (
-        <Router>
           <div className = "App">
             <Navbar/>
             <div className="container">
-            <Switch>
-                <Route
-               exact
-               path='/'
-               render={props => (
-                 <Fragment>
                    <Users loading={loading} users={users} />
                      <InfiniteScroll
                       dataLength={users.length} //This is important field to render the next data
@@ -51,18 +45,10 @@ class App extends Component {
                       loader={<Loader/>}
                       endMessage={
                         <p style={{textAlign: 'center'}}>
-                          <b>Yay! You have seen it all</b>
-                        </p>
-                }/>
-                 </Fragment>
-               )}
-             />
-          <Route exact path='/about' component={About} />
-
-      </Switch>
+                          <b>Yay! You have seen it all</b> </p>}
+                      />
             </div>
           </div>
-        </Router>
   );
   }
 }

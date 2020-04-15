@@ -4,8 +4,10 @@ import {Link} from 'react-router-dom';
 const Navbar=({icon,title})=> {
     return(
       <div>
-        <nav className="navbar navbar-light bg-light">
+        <nav className="navbar navbar-dark bg-danger">
           <a class="navbar-brand" href="/"><i className={icon}></i>  {title}</a>
+            <a class="nav-link" href="/">Home</a>
+            <a class="nav-link" href="/about">About</a>
         </nav>
       </div>
     );
