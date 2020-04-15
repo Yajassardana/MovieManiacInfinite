@@ -6,7 +6,7 @@ import axios from 'axios'
 import About from './Components/pages/about.js';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import Loader from './Components/Layout/Loader.js';
-import Modal from './Components/Layout/Modal.js'
+import {BrowserRouter as Router,Switch,Route} from 'react-router-dom';
 // import {BrowserRouter as Router,Switch,Route} from 'react-router-dom';
 class App extends Component {
   state={
@@ -23,7 +23,7 @@ class App extends Component {
         });
       });
 
-    }, 1000);
+    }, 1500);
   };
   async componentDidMount() {
     this.setState({loading:true});
@@ -32,23 +32,39 @@ class App extends Component {
     console.log(res.data);
   }
   render() {
-    const{users,loading,alert}=this.state;
+    const{users,loading}=this.state;
     return (
-      <div className = "App">
-        <Navbar/>
-        <div className="container">
-          <Users loading={loading} users={users} />
-          <InfiniteScroll
-            dataLength={users.length} //This is important field to render the next data
-            next={this.fetchMoreData}
-            hasMore={true}
-            loader={<Loader/>}
-            endMessage={
-              <p style={{textAlign: 'center'}}>
-                <b>Yay! You have seen it all</b> </p>}
-                  />
+      <Router>
+        <div className = "App">
+          <Navbar/>
+          <div className="container">
+                <Switch>
+                    <Users loading={loading} users={users} />
+                      <Route
+                     exact
+                     path='/'
+                     render={props => (
+                       <Fragment>
+                         <Users
+                           loading={loading}
+                           users={users} />
+                       </Fragment>
+                     )}
+                   />
+                    <Route exact path='/about' component={About} />
+                  </Switch>
+                  <InfiniteScroll
+                    dataLength={users.length} //This is important field to render the next data
+                    next={this.fetchMoreData}
+                    hasMore={true}
+                    loader={<Loader/>}
+                    endMessage={
+                      <p style={{textAlign: 'center'}}>
+                        <b>Yay! You have seen it all</b> </p>}
+                          />
+                </div>
               </div>
-            </div>
+            </Router>
           );
         }
       }

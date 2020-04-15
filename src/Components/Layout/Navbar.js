@@ -6,12 +6,12 @@ const Navbar=({icon,title})=> {
   <div>
     <nav className="navbar navbar-dark bg-danger">
       <a className="navbar-brand" href="/"><i className={icon}></i>  {title}</a>
-        <ul class="nav justify-content-end">
-    <li class="nav-item">
-      <a class="nav-link" href="/about">About</a>
+        <ul className="nav justify-content-end">
+    <li className="nav-item">
+      <a className="nav-link" href="/"><i class="fas fa-infinity"></i></a>
     </li>
-    <li class="nav-item">
-      <a class="nav-link " href="/">Home</a>
+    <li className="nav-item">
+      <a className="nav-link " href="/">Home</a>
     </li>
   </ul>
     </nav>
