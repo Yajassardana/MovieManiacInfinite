@@ -3,6 +3,7 @@
 /* Global Styles */
 @import url('https://fonts.googleapis.com/css?family=Raleway:300,400,600&subset=latin-ext');
 @import url('https://fonts.googleapis.com/css?family=Raleway:300,400,600&subset=latin-ext');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap');
 li a{
 color: white;
 }
@@ -175,7 +176,7 @@ color: white;
 }
 
 body {
-  font-family: 'Raleway', sans-serif;
+  font-family: 'Open Sans', sans-serif;
   font-size: 1rem;
   line-height: 1.6;
   background-color: #fff;
