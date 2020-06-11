@@ -1,6 +1,6 @@
 Movie-Maniac Infinite
 ==========================
-An **Infinite** Scrolling movie browing app made using **ReactJs**. It enlists lates **trending** movies with short descriptions for each of them becoming visible on hover.
+An **Infinite** Scrolling movie browing app made using **ReactJs**. It enlists latest **trending** movies with short descriptions for each of them becoming visible on hover.
 1. **Movie DB** - Retrives data using the movie DB api, displaying 20 movies in one go and then waiting for the user to scroll down in before loading the next 20 trending movie.
 2. **Axios** - Use axios to make calls to the mentioned api.
 
